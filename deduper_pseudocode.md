@@ -49,7 +49,9 @@ For the the next record, check if umi, chr, strand and adj_pos are the same. \
 
 **Functions**
 
+```
 def cigar(str) -> list of tuples: 
+
     '''Put letter and number pairs as separate tuples within a list when given a string (in this case, it will be a cigar string)'''
 
     list_of_tuples = lst 
@@ -57,4 +59,5 @@ def cigar(str) -> list of tuples:
 
     Test example: '25M246N41M' 
     Expected output: [(25, M), (256, N), (41, M)]
+```
 
