@@ -35,16 +35,17 @@ For the the next record, check if umi, chr, strand and adj_pos are the same. \
     If false and the UMI is in the umi list, write the record to the deduplicated SAM file. At this point, also clear the dict and replace it with the information from the current record. 
 
 **To determine adj_pos:**
-    Want to pair the feature and the number of bases within that feature, independent of the other features so that the CIGAR string becomes searchable (i.e., in a list of tuples: [(3, S), (40, M)]). \
-    We only care about soft clipping when it happens at the 5' end. 
+
+Want to pair the feature and the number of bases within that feature, independent of the other features so that the CIGAR string becomes searchable (i.e., in a list of tuples: [(3, S), (40, M)]). \
+We only care about soft clipping when it happens at the 5' end. 
     
-    If the seq aligned to the positive strand: 
-        Thus, 5' soft clipping will be the first feature noted in the CIGAR string. 
-        So, check if the first tuple in the list has an S in [1]. If it does, grab the number saved in [0] and subtract it from pos. Save the new value in adj_pos (alternatively, can save it as the new value of pos).
+If the seq aligned to the positive strand: 
+* Thus, 5' soft clipping will be the first feature noted in the CIGAR string. 
+* So, check if the first tuple in the list has an S in [1]. If it does, grab the number saved in [0] and subtract it from pos. Save the new value in adj_pos (alternatively, can save it as the new value of pos).
     
-    If seq aligned to the negative strand:
-        Thus, 5' soft clipping will be the last feature noted in the CIGAR string. 
-        So, check if the last tuple in the list has an S in [1]. If it does, grab the number saved in [0] and add it to pos. Save the new value in adj_pos (alternatively, can save it as the new value of pos).
+If seq aligned to the negative strand:
+* Thus, 5' soft clipping will be the last feature noted in the CIGAR string. 
+* So, check if the last tuple in the list has an S in [1]. If it does, grab the number saved in [0] and add it to pos. Save the new value in adj_pos (alternatively, can save it as the new value of pos).
 
 
 **Functions**
