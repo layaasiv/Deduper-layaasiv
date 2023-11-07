@@ -1,6 +1,6 @@
 ### Lab Notebook: Deduper
 
-SAM File to be deduped: ``/projects/bgmp/layaasiv/bioinfo/Bi624/Deduper-layaasiv/C1_SE_uniqAlign.sam```
+SAM File to be deduped: ```/projects/bgmp/layaasiv/bioinfo/Bi624/Deduper-layaasiv/C1_SE_uniqAlign.sam```
 
 To sort the file: ```samtools sort -o <output file name> <input file name>``` in the bgmp_star conda env.
 
