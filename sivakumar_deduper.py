@@ -140,3 +140,8 @@ with open(sam_og, 'r') as sam_og, open('dupes.txt', 'w') as dupes, open(sam_new,
             # invalid UMIs are written to invalid file
             else:
                 inv.write(line)
+
+sam_og.close()
+dupes.close()
+sam_new.close()
+inv.close()
