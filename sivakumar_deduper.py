@@ -97,7 +97,7 @@ umi_list = create_umi_list(val_umis)
 chrom_var = ''
 
 # iterate through the SAM file, saving all unique reads in one chromosome at a time
-with open(sam_og, 'r') as sam_og, open('dupes.txt', 'w') as dupes, open(sam_new, 'w') as sam_new:
+with open(sam_og, 'r') as sam_og, open('dupes.txt', 'w') as dupes, open(sam_new, 'w') as sam_new, open('invalid.txt', 'w') as inv:
     for line in sam_og:
         # write out the headers
         if line.startswith('@'): 
@@ -137,6 +137,6 @@ with open(sam_og, 'r') as sam_og, open('dupes.txt', 'w') as dupes, open(sam_new,
                 else: 
                     raise Exception('Valid UMI but did no meet other conditions.')
             
-            # invalid UMIs are ignored
+            # invalid UMIs are written to invalid file
             else:
-                continue
+                inv.write(line)
